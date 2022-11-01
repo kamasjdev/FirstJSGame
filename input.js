@@ -1,4 +1,4 @@
-const allowedKeys = ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight', 'Enter'];
+import { allowedKeys } from "./keys.js";
 
 // store only active keys
 export class InputHandler {
