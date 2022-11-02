@@ -1,7 +1,7 @@
 import { keys } from "./keys.js";
 import { Dust, Fire, Splash } from "./particles.js";
 
-const states = {
+export const states = {
     SITTING: 0,
     RUNNING: 1,
     JUMPING: 2,
@@ -125,7 +125,7 @@ export class Rolling extends State {
             this.game.player.setState(states.FALLING, 1);
         } else if (input.includes(keys.Enter) && input.includes(keys.ArrowUp) && this.game.player.onGround()) {
             this.game.player.vy -= 27;
-        } else if (input.includes(keys.ArrowDown)) {
+        } else if (input.includes(keys.ArrowDown) && !this.game.player.onGround()) {
             this.game.player.setState(states.DIVING, 0);
         }
     }

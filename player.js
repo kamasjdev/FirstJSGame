@@ -1,6 +1,6 @@
 import { CollisionAnimation } from "./collissionAnimation.js";
 import { keys } from "./keys.js";
-import { Diving, Falling, Hit, Jumping, Rolling, Running, Sitting } from "./playerStates.js";
+import { Diving, Falling, Hit, Jumping, Rolling, Running, Sitting, states } from "./playerStates.js";
 
 export class Player {
     constructor(game) {
@@ -35,9 +35,9 @@ export class Player {
         this.currentState.handleInput(input);
         // horizontal movment
         this.x += this.speed;
-        if (input.includes(keys.ArrowRight)) {
+        if (input.includes(keys.ArrowRight) && this.currentState !== this.states[states.HIT]) {
             this.speed = this.maxSpeed;
-        } else if (input.includes(keys.ArrowLeft)) {
+        } else if (input.includes(keys.ArrowLeft) && this.currentState !== this.states[states.HIT]) {
             this.speed = -this.maxSpeed;
         } else {
             this.speed = 0;
@@ -107,10 +107,10 @@ export class Player {
                 enemy.y + enemy.height > this.y) {
                 enemy.markedForDeletion = true;
                 this.game.collisions.push(new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5));
-                    if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
+                    if (this.currentState === this.states[states.ROLLING] || this.currentState === this.states[states.DIVING]) {
                         this.game.score++;
                     } else {
-                        this.setState(6, 0);
+                        this.setState(states.HIT, 0);
                     }
             } else {
                 // no collision
