@@ -14,6 +14,12 @@
     max-height: 100%;
 }
 
-#player, #layer1, #layer2, #layer3, #layer4, #layer5, #enemyFly, #enemyPlant, #enemySpiderBig, #fire, #collisionAnimation {
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #enemyFly, #enemyPlant, #enemySpiderBig, #fire, #collisionAnimation,
+#lives {
     display: none;
+}
+
+@font-face {
+    font-family: 'Bangers';
+    src: url('./assets/Bangers-Regular.ttf') format('truetype');
 }
