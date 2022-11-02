@@ -23,3 +23,8 @@
     font-family: 'Bangers';
     src: url('./assets/Bangers-Regular.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Creepster';
+    src: url('./assets/Creepster-Regular.ttf') format('truetype');
+}
